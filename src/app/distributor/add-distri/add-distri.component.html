@@ -1,0 +1,97 @@
+<div class="container">
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <button type="button" class="btn btn-custom" routerLink="/distri/list">
+          Retour à la liste
+        </button>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"></a>
+      </li>
+      <li class="nav-item">
+          <button type="button" class="btn btn-custom" routerLink="/">
+          Retour à l'accueil
+          </button>
+      </li>
+    </ul>
+  </div>  
+<div class="container-fluid mt-5">
+    <div class="row">
+      <div class="col-3">
+        
+      </div>
+      <div class="col-6">
+        <h2 class="text-center mytext-orange"> Ajouter un nouveau distributeur </h2>
+        <form #userForm="ngForm" (ngSubmit)="addDistributor()">
+            
+            <div class="form-group">
+                <label for="user">Associer à un utilisateur déjà existant *</label>
+                <select id="user" class="form-control" (change)="setUser($event)">
+                    <option value="" selected hidden>Identifiant utilisateur</option>
+                  <option *ngFor="let user of users.slice().reverse()" [value]="user.id">{{ user.email }} - {{ user.name }}</option>
+                </select>
+              </div>
+
+            <div class="form-group">
+                <label for="company">Nom du distributeur *</label>
+                <input class="form-control" id="company" name="company" placeholder="nom du distributeur" type="text" required [(ngModel)]="distributor.company" #company="ngModel">
+                <div *ngIf="company.invalid && (company.dirty || company.touched)"
+                class="alert alert-danger">
+             Le nom est requis
+           </div> 
+            </div>
+            <div class="form-group">
+                <label for="adress1">Adresse du distributeur *</label>
+                <input class="form-control" id="adress1" name="adress1" placeholder="addresse 1" required [(ngModel)]="distributor.adress1" #adress1="ngModel">
+                <div *ngIf="adress1.invalid && (adress1.dirty || adress1.touched)"
+                class="alert alert-danger">
+             L'adresse est requise
+           </div> 
+            </div>
+            <div class="form-group">
+                <label for="adress2">Adresse complémentaire</label>
+                <input class="form-control" id="adress2" name="adress2" placeholder="adresse 2" required=false [(ngModel)]="distributor.adress2" #adress2="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="postal">Code postal *</label>
+                <input class="form-control" id="postal" name="postal" placeholder="63200" required [(ngModel)]="distributor.postal" #postal="ngModel">
+                <div *ngIf="postal.invalid && (postal.dirty || postal.touched)"
+                class="alert alert-danger">
+             Le code postal est requis
+           </div> 
+            </div>
+            <div class="form-group">
+                <label for="city">Ville *</label>
+                <input class="form-control" id="city" name="city" placeholder="RIOM" required [(ngModel)]="distributor.city" #city="ngModel">
+                <div *ngIf="city.invalid && (city.dirty || city.touched)"
+                class="alert alert-danger">
+             La ville est requis
+           </div> 
+
+            </div>
+            <div class="form-group">
+                <label for="facebook">Lien url facebook</label>
+                <input class="form-control" id="facebook" name="facebook" placeholder="http://www.facebook.com/stilivita" required=false [(ngModel)]="distributor.facebook" #facebook="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="website">Lien du site internet</label>
+                <input class="form-control" id="website" name="website" placeholder="http://www.stilivita.fr/" required=false [(ngModel)]="distributor.website" #website="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="phone">Téléphone</label>
+                <input class="form-control" id="phone" name="phone" placeholder="04 73 33 18 33" required=false [(ngModel)]="distributor.phone" #phone="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="gpsLat">gps Lat</label>
+                <input class="form-control" id="gpsLat" name="gpsLat" placeholder="45.96630096435547" type="number" required=false [(ngModel)]="distributor.gpsLat" #gpsLat="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="gpsLong">gps Long</label>
+                <input class="form-control" id="gpsLong" name="gpsLong" placeholder="3.160399913787842" type="number" required=false [(ngModel)]="distributor.gpsLong" #gpsLong="ngModel">
+            </div>
+
+          <input [disabled]="!userForm.valid" class="btn btn-custom" type="submit">
+        </form>
+      </div>
+  </div>
+  

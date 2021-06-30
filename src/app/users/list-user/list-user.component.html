@@ -1,0 +1,100 @@
+
+<div class="container">
+  <ul class="nav justify-content-center">
+    <li class="nav-item">
+      <button type="button" class="btn btn-custom" routerLink="/">
+        Retour
+      </button>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#"></a>
+    </li>
+    <li class="nav-item">
+        <button type="button" class="btn btn-custom" routerLink="/user/add">
+        Ajouter un compte
+        </button>
+    </li>
+  </ul>
+</div> 
+<div class="container">
+  <div class="my-box d-flex justify-content-center" *ngIf="isLoading">
+      <div class="spinner-border" role="status">
+        <span class="sr-only"></span>
+      </div>
+    </div>
+</div>
+
+<div class="container" *ngIf="!isLoading">   
+  <form #formFilters="ngForm" (ngSubmit)="applyFilters()">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Identifiant</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Prénom</th>
+        <th scope="col">Entreprise</th>
+        <th scope="col">Adresse 1</th>
+        <th scope="col">Adresse 2</th>
+        <th scope="col">Code Postal</th>
+        <th scope="col">Ville</th>
+        <th scope="col">Date création</th>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+            <input type="text" class="form-control" [(ngModel)]="filters.email" name="filterEmail">
+        </td>
+        <td>
+          <input type="text" class="form-control" [(ngModel)]="filters.name" name="filterName">
+        </td>                                                                                                              
+        <td>
+            <input type="text" class="form-control" [(ngModel)]="filters.firstname" name="filterFirstName">
+        </td>  
+        <td>
+            <input type="text" class="form-control" [(ngModel)]="filters.company" name="filterCompany">
+        </td>  
+        <td></td>
+        <td></td>
+        <td></td>  
+        <td></td>   
+        <td></td>          
+        <td>
+            <button type="submit" class="btn btn-primary">Rechercher</button>
+        </td>
+    </tr>
+
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users; let i=index; ">
+    
+          <th scope="row"></th>
+          <td>{{ user.email }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.firstname }}</td>
+          <td>{{ user.company }}</td>
+          <td>{{ user.address1 }}</td>
+          <td>{{ user.address2 }}</td>
+          <td>{{ user.postal }}</td>
+          <td>{{ user.city }}</td>
+          <td>{{ user.datecreation | date: 'dd/MM/yyyy' }}</td>
+          <td>
+            <button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/user/edit', user.id]">
+              Modifier
+            </button>
+          </td>
+            <td>  
+            <button type="button" class="btn btn-sm btn-secondary" (click)="deleteUser(user.id)"> 
+              Supprimer
+            </button>
+          </td>
+        
+      </tr>
+      </tbody>
+    </table>
+</form>
+</div>
+
+
+
+  

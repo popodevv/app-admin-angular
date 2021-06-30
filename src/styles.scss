@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+
+.btn.btn-custom{
+    color : white;
+    background-color:#232323;
+}
+
+.btn.btn-custom:hover{
+    color : white;
+    background-color:#444444;
+}
+
+
+
+.btn.btn-primary {
+    color : white;
+    background-color:#00ADB5;
+    border: none;
+}
+.btn.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color:  #797d85;
+}
+
+.btn.btn-secondary{
+    color : white;
+    background-color:#393E46;
+    border: none;
+}
+.btn.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .btn-secondary.active, .open>.dropdown-toggle.btn-secondary {
+    color: #fff;
+    background-color:  #222831;
+    
+}
+
+.my-box {
+    height: 50px;
+    margin-top: 50px;
+
+}
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

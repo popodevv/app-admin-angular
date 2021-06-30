@@ -1,0 +1,92 @@
+<!-- <div class="container-fluid">
+    <div class="my-box d-flex justify-content-center" *ngIf="isLoading">
+        <div class="spinner-border" role="status">
+          <span class="sr-only"></span>
+        </div>
+      </div>
+    </div> -->
+
+<div class="container-fluid mt-5"></div>
+    <div class="row">
+      <div class="col-3">
+      </div>
+      <div class="col-6">
+        <form #userForm="ngForm" (ngSubmit)="addPrice()">
+            <div class="hid">
+            <div class="form-group">
+                <label for="user">Associé au dernier user ajouté</label>
+                <select id="user" class="form-control" (change)="setUser($event)">
+                  <option *ngFor="let user of users.slice().reverse()" [value]="user.id">
+                   {{ user.id }} 
+                </option>
+                </select>         
+            </div>
+
+            <div class="form-group">
+                <label for="coefbeads"> coefbeads </label>
+                <input class="form-control" id="coefbeads" name="coefbeads" placeholder="2.8" type="number" required   [(ngModel)]="price.coefBeads" #coefbeads="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="coefbracelet"> coefbracelet </label>
+                <input class="form-control" id="coefbracelet" name="coefbracelet" placeholder="2.5" type="number" required [(ngModel)]="price.coefBracelet" #coefbracelet="ngModel">
+            
+            </div>
+            <div class="form-group">
+                <label for="coefcomponents"> coefcomponents </label>
+                <input class="form-control" id="coefcomponents" name="coefcomponents" placeholder="2.8" type="number" required [(ngModel)]="price.coefComponents" #coefcomponents="ngModel">
+
+            </div>
+            <div class="form-group">
+                <label for="displayprice"> displayprice </label>
+                <input class="form-control" id="displayprice" name="displayprice" placeholder="1" type="number" required [(ngModel)]="price.displayPrice" #displayprice="ngModel">
+
+            </div>
+            <div class="form-group">
+                <label for="displaypricebymodel"> displaypricebymodel </label>
+                <input class="form-control" id="displaypricebymodel" name="displaypricebymodel" placeholder="1 ou 0" type="number" required [(ngModel)]="price.displayPriceByModel" #displaypricebymodel="ngModel">
+
+            </div>
+            <div class="form-group">
+                <label for="pricemodel1"> pricemodel1 </label>
+                <input class="form-control" id="pricemodel1" name="pricemodel1" placeholder="0" type="number" required [(ngModel)]="price.priceModel1" #pricemodel1="ngModel">
+
+            </div>
+            <div class="form-group">
+                <label for="pricemodel2"> pricemodel2 </label>
+                <input class="form-control" id="pricemodel2" name="pricemodel2" placeholder="0"type="number" required [(ngModel)]="price.priceModel2" #pricemodel2="ngModel">
+
+            </div>
+            <div class="form-group">
+                <label for="pricemodel3"> pricemodel3 </label>
+                <input class="form-control" id="pricemodel3" name="pricemodel3" placeholder="0" type="number" required [(ngModel)]="price.priceModel3" #pricemodel3="ngModel">
+
+            </div>
+            <div class="form-group">
+                <label for="pricemodel4"> pricemodel4 </label>
+                <input class="form-control" id="pricemodel4" name="pricemodel4" placeholder="0" type="number" required [(ngModel)]="price.priceModel4" #pricemodel4="ngModel">
+
+            </div>
+            <div class="form-group">
+                <label for="pricemodel5"> pricemodel5 </label>
+                <input class="form-control" id="pricemodel5" name="pricemodel5" placeholder="0" type="number" required [(ngModel)]="price.priceModel5" #pricemodel5="ngModel">
+
+            </div>
+            <div class="form-group">
+                <label for="pricemodel6"> pricemodel6 </label>
+                <input class="form-control" id="pricemodel6" name="pricemodel6" placeholder="0" type="number" required [(ngModel)]="price.priceModel6" #pricemodel6="ngModel">
+
+            </div>
+            <div class="form-group">
+                <label for="pricemodel10"> pricemodel10 </label>
+                <input class="form-control" id="pricemodel10" name="pricemodel10" placeholder="0" type="number" required [(ngModel)]="price.priceModel10" #pricemodel10="ngModel">
+            </div>
+        </div>
+  <!-- add user_price when click button maj auto -->
+        <div class="wrapper">
+          <button [disabled]="!userForm.valid" class="btn btn-custom" type="submit" > Mettre à jour le compte professionnel</button>
+         </div>
+        </form> 
+       </div>
+  </div>
+
+

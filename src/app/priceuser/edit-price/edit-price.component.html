@@ -1,0 +1,97 @@
+<div class="container-fluid">
+    <div class="my-box d-flex justify-content-center" *ngIf="isLoading">
+        <div class="spinner-border" role="status">
+          <span class="sr-only"></span>
+        </div>
+      </div>
+    </div>
+
+<div class="container-fluid mt-5">
+    <div class="row">
+      <div class="col-3">
+        
+      </div>
+      <div class="col-6">
+        <h2 class="text-center mytext-orange"> Modifier un nouveau compte prix </h2>
+        <form #userForm="ngForm" (ngSubmit)="updatePrice()">
+
+
+        <!--<div class="form-group">
+                <label for="iduser"> Identifiant </label>
+                <input class="form-control" id="iduser" name="iduser" placeholder="ex : 54BOR010" type="number" required [(ngModel)]="priceUpdate.idUser" #iduser="ngModel">
+                <div [hidden]="iduser.valid" class="alert alert-danger"> iduser identifiant est requis</div>
+            </div> -->
+            <!-- <div class="form-group">
+                <label for="user">choose the user form distributor</label>
+                <select id="user" class="form-control" (change)="setUser($event)">
+                  <option *ngFor="let user of users.slice().reverse()" [value]="user.id">
+                   {{ user.id}} 
+                </option>
+                </select>         
+            </div> -->
+            <div class="form-group">
+                <label for="coefbeads"> coefbeads </label>
+                <input class="form-control" id="coefbeads" name="coefbeads" placeholder="ex : 54BOR010"  type="number"required [(ngModel)]="priceUpdate.coefBeads" #coefbeads="ngModel">
+                <div [hidden]="coefbeads.valid" class="alert alert-danger"> coefbeads identifiant est requis</div>
+            </div>
+            <div class="form-group">
+                <label for="coefbracelet"> coefbracelet </label>
+                <input class="form-control" id="coefbracelet" name="coefbracelet" placeholder="ex : 54BOR010" type="number" required [(ngModel)]="priceUpdate.coefBracelet" #coefbracelet="ngModel">
+                <div [hidden]="coefbracelet.valid" class="alert alert-danger"> coefbracelet est requis</div>
+            </div>
+            <div class="form-group">
+                <label for="coefcomponents"> coefcomponents </label>
+                <input class="form-control" id="coefcomponents" name="coefcomponents" placeholder="ex : 54BOR010" type="number" required [(ngModel)]="priceUpdate.coefComponents" #coefcomponents="ngModel">
+                <div [hidden]="coefcomponents.valid" class="alert alert-danger"> coefcomponents est requis</div>
+            </div>
+            <div class="form-group">
+                <label for="displayprice"> displayprice </label>
+                <input class="form-control" id="displayprice" name="displayprice" placeholder="ex : 54BOR010" type="number" required [(ngModel)]="priceUpdate.displayPrice" #displayprice="ngModel">
+                <div [hidden]="displayprice.valid" class="alert alert-danger"> displayprice est requis</div>
+            </div>
+            <div class="form-group">
+                <label for="displaypricebymodel"> displaypricebymodel </label>
+                <input class="form-control" id="displaypricebymodel" name="displaypricebymodel" placeholder="ex : 54BOR010" type="number" required [(ngModel)]="priceUpdate.displayPriceByModel" #displaypricebymodel="ngModel">
+                <div [hidden]="displaypricebymodel.valid" class="alert alert-danger"> displaypricebymodel est requis</div>
+            </div>
+            <div class="form-group">
+                <label for="pricemodel1"> pricemodel1 </label>
+                <input class="form-control" id="pricemodel1" name="pricemodel1" placeholder="ex : 54BOR010" type="number" required [(ngModel)]="priceUpdate.priceModel1" #pricemodel1="ngModel">
+                <div [hidden]="pricemodel1.valid" class="alert alert-danger"> pricemodel1 est requis</div>
+            </div>
+            <div class="form-group">
+                <label for="pricemodel2"> pricemodel2 </label>
+                <input class="form-control" id="pricemodel2" name="pricemodel2" placeholder="ex : 54BOR010" type="number" required [(ngModel)]="priceUpdate.priceModel2" #pricemodel2="ngModel">
+                <div [hidden]="pricemodel2.valid" class="alert alert-danger"> pricemodel2 est requis</div>
+            </div>
+            <div class="form-group">
+                <label for="pricemodel3"> pricemodel3 </label>
+                <input class="form-control" id="pricemodel3" name="pricemodel3" placeholder="ex : 54BOR010" type="number" required [(ngModel)]="priceUpdate.priceModel3" #pricemodel3="ngModel">
+                <div [hidden]="pricemodel3.valid" class="alert alert-danger"> pricemodel3 est requis</div>
+            </div>
+            <div class="form-group">
+                <label for="pricemodel4"> pricemodel4 </label>
+                <input class="form-control" id="pricemodel4" name="pricemodel4" placeholder="ex : 54BOR010" type="number" required [(ngModel)]="priceUpdate.priceModel4" #pricemodel4="ngModel">
+                <div [hidden]="pricemodel4.valid" class="alert alert-danger"> pricemodel4 est requis</div>
+            </div>
+            <div class="form-group">
+                <label for="pricemodel5"> pricemodel5 </label>
+                <input class="form-control" id="pricemodel5" name="pricemodel5" placeholder="ex : 54BOR010" type="number" required [(ngModel)]="priceUpdate.priceModel5" #pricemodel5="ngModel">
+                <div [hidden]="pricemodel5.valid" class="alert alert-danger"> pricemodel5 est requis</div>
+            </div>
+            <div class="form-group">
+                <label for="pricemodel6"> pricemodel6 </label>
+                <input class="form-control" id="pricemodel6" name="pricemodel6" placeholder="ex : 54BOR010" type="number" required [(ngModel)]="priceUpdate.priceModel6" #pricemodel6="ngModel">
+                <div [hidden]="pricemodel6.valid" class="alert alert-danger"> pricemodel6 est requis</div>
+            </div>
+            <div class="form-group">
+                <label for="pricemodel10"> pricemodel10 </label>
+                <input class="form-control" id="pricemodel10" name="pricemodel10" placeholder="ex : 54BOR010" type="number" required [(ngModel)]="priceUpdate.priceModel10" #pricemodel10="ngModel">
+                <div [hidden]="pricemodel10.valid" class="alert alert-danger"> pricemodel10 est requis</div>
+            </div>
+          
+  
+          <input [disabled]="!userForm.valid" class="btn btn-custom" type="submit">
+        </form>
+      </div>
+  </div>

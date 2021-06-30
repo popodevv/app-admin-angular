@@ -27,7 +27,7 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
-              "src/favicon.ico",
+              "src/favicon.png",
               "src/assets"
             ],
             "styles": [
@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "adminpo"
+  "defaultProject": "adminpo",
+  "cli": {
+    "analytics": "2573d01e-2f56-4a7b-b8b2-0a085d8a4105"
+  }
 }

@@ -1,0 +1,136 @@
+<div class="container">
+  <ul class="nav justify-content-center">
+    <li class="nav-item">
+      <button type="button" class="btn btn-custom" routerLink="/user/list">
+        Retour à la liste
+      </button>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#"></a>
+    </li>
+    <li class="nav-item">
+        <button type="button" class="btn btn-custom" routerLink="/">
+        Retour à l'accueil
+        </button>
+    </li>
+  </ul>
+</div>  
+
+<div class="container-fluid mt-5">
+    <div class="row">
+      <div class="col-3">
+        
+      </div>
+      <div class="col-6">
+        <h2 class="text-center mytext-orange"> Ajouter un nouveau compte professionnel </h2>
+        <form #userForm="ngForm" (ngSubmit)="addUser()">
+
+          <div class="form-group">
+              <label for="email"> Identifiant *</label>
+              <input class="form-control" id="email" name="email" placeholder="ex : 54BOR010" required [(ngModel)]="userAdd.email" #email="ngModel">
+            <div *ngIf="email.invalid && (email.dirty || email.touched)"
+              class="alert alert-danger">
+           Le numéro identifiant est requis
+         </div> 
+              
+          </div>
+
+          <div class="form-group">
+            <label for="password"> Mot de passe *</label>
+            <input class="form-control" id="password" name="password" placeholder="stilivita" required [(ngModel)]="userAdd.password" #password="ngModel">
+            <div *ngIf="password.invalid && (password.dirty || password.touched)"
+            class="alert alert-danger">
+         Le numéro identifiant est requis
+       </div> 
+        </div>
+
+        <div class="form-group">
+            <label for="name">Nom du professionnel </label>
+            <input class="form-control" id="name" name="name" placeholder="nom du professionnel" required=false [(ngModel)]="userAdd.name" #name="ngModel">
+        </div>
+
+        <div class="form-group">
+            <label for="firstname">Prénom du professionnel</label>
+            <input class="form-control" id="firstname" name="firstname" placeholder="prénom" required=false [(ngModel)]="userAdd.firstname" #firstname="ngModel">
+        </div>
+
+         <div class="form-group">
+            <label for="company">Nom de l'entreprise</label>
+            <input class="form-control" id="company" name="company" placeholder="nom" required=false [(ngModel)]="userAdd.company" #company="ngModel">
+        </div>
+        
+        <div class="form-group">
+            <label for="address1">L'adresse de la société *</label>
+            <input class="form-control" id="address1" name="address1" placeholder="adresse" required [(ngModel)]="userAdd.address1" #address1="ngModel">
+            <div *ngIf="address1.invalid && (address1.dirty || address1.touched)"
+            class="alert alert-danger">
+         L'adresse est requise
+       </div> 
+        </div>
+        
+         <div class="form-group">
+            <label for="address2">Adresse complémentaire</label>
+            <input class="form-control" id="address2" name="address2" placeholder="adresse 2" required=false [(ngModel)]="userAdd.address2" #address2="ngModel">
+        </div>
+
+         <div class="form-group">
+            <label for="postal">Code postal *</label>
+            <input class="form-control"  id="postal" name="postal" placeholder="63119" required [(ngModel)]="userAdd.postal" #postal="ngModel">
+            <div *ngIf="postal.invalid && (postal.dirty || postal.touched)"
+            class="alert alert-danger">
+         Le code postal est requis
+       </div> 
+          </div>
+
+
+          <div class="form-group">
+            <label for="city">Ville *</label>
+            <input class="form-control" id="city" name="city" placeholder="ville" required [(ngModel)]="userAdd.city" #city="ngModel">
+            <div *ngIf="city.invalid && (city.dirty || city.touched)"
+            class="alert alert-danger">
+         La ville est requis
+       </div> 
+          </div>
+
+          <div class="form-group">
+            <label for="demo">Choisir demo :</label>
+          <select>
+            <input class="form-control" id="demo" name="demo" placeholder="0ou 1" required [(ngModel)]="userAdd.demo" #demo="ngModel">
+            <option *ngFor =" let cho of chos " [ngValue]="cho"> {{ cho }}</option>
+          </select>
+        </div>
+
+
+        <!-- <div class="form-group">
+            <label for="dateCreation">Date création du compte (date actuelle) </label>
+            <input class="form-control" id="datecreation" name="datecreation" placeholder="20210603 aaaammjj" required [(ngModel)]="userAdd.datecreation" #datecreation="ngModel">
+        </div> -->
+
+        <div class="form-group">
+            <label for="adel">Choisir Adel :</label>
+            <select>
+            <input class="form-control" id="adel" name="adel" placeholder="0 ou 1"  required [(ngModel)]="userAdd.adel" #adel="ngModel">
+            <option  *ngFor =" let cho of chos " [ngValue]="cho"> {{ cho }}</option>
+        </select>
+      </div>
+
+
+  <!--<div class="form-group">
+            <label for="subdomain"> subdomain </label>
+            <input class="form-control" id="subdomain" name="subdomain" required [(ngModel)]="userAdd.subdomain" #subdomain="ngModel">
+        </div>
+
+        <div class="form-group">
+            <label for="psShopId"> psShopId </label>
+            <input class="form-control" id="psShopId" name="psShopId" required [(ngModel)]="userAdd.psShopId" #psShopId="ngModel">
+        </div>-->
+
+          <input [disabled]="!userForm.valid" class="btn btn-custom" type="submit">
+        </form>
+      </div>
+  </div>
+  
+
+
+
+

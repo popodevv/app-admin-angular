@@ -1,0 +1,89 @@
+<div class="container">
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <button type="button" class="btn btn-custom" routerLink="/distri/list">
+          Retour à la liste
+        </button>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"></a>
+      </li>
+      <li class="nav-item">
+          <button type="button" class="btn btn-custom" routerLink="/">
+          Retour à l'accueil
+          </button>
+      </li>
+    </ul>
+  </div>  
+
+<div class="container-fluid">
+    <div class="my-box d-flex justify-content-center" *ngIf="isLoading">
+        <div class="spinner-border" role="status">
+          <span class="sr-only"></span>
+        </div>
+      </div>
+    </div>
+
+<div class="container-fluid mt-5">
+    <div class="row">
+      <div class="col-3">
+        
+      </div>
+      <div class="col-6">
+        <h2 class="text-center mytext-orange"> Modifier un compte professionnel </h2>
+        <form #userForm="ngForm" (ngSubmit)="updateDistributor()">
+
+            <div class="form-group">
+                <label for="idDistributor">idDistributor </label>
+                <input class="form-control" id="idDistributor" name="idDistributor" required [(ngModel)]="distributorUpdate.idDistributor" #idDistributor="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="idUser">identifiant de l'utilisateur associé</label>
+                <input class="form-control" id="idUser" name="idUser" required [(ngModel)]="distributorUpdate.idUser" #idUser="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="company">Nom de la sociét"</label>
+                <input class="form-control" id="company" name="company" required [(ngModel)]="distributorUpdate.company" #company="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="adress1">Adresse de la société</label>
+                <input class="form-control" id="adress1" name="adress1" required [(ngModel)]="distributorUpdate.adress1" #adress1="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="adress2">Adresse complémentaire</label>
+                <input class="form-control" id="adress2" name="adress2" required [(ngModel)]="distributorUpdate.adress2" #adress2="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="postal">Code postal</label>
+                <input class="form-control" id="postal" name="postal" required [(ngModel)]="distributorUpdate.postal" #postal="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="city">Ville</label>
+                <input class="form-control" id="city" name="city" required [(ngModel)]="distributorUpdate.city" #city="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="facebook">Lien url facebook</label>
+                <input class="form-control" id="facebook" name="facebook" required [(ngModel)]="distributorUpdate.facebook" #facebook="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="website">Lien url site internet</label>
+                <input class="form-control" id="website" name="website" required [(ngModel)]="distributorUpdate.website" #website="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="phone">Numéro téléphone portable</label>
+                <input class="form-control" id="phone" name="phone" required [(ngModel)]="distributorUpdate.phone" #phone="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="gpsLat">gps Lat</label>
+                <input class="form-control" id="gpsLat" name="gpsLat" required [(ngModel)]="distributorUpdate.gpsLat" #gpsLat="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="gpsLong">gps Long</label>
+                <input class="form-control" id="gpsLong" name="gpsLong" required [(ngModel)]="distributorUpdate.gpsLong" #gpsLong="ngModel">
+            </div>
+  
+          <input [disabled]="!userForm.valid" class="btn btn-custom" type="submit">
+        </form>
+      </div>
+  </div>
+  

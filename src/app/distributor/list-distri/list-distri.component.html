@@ -1,0 +1,101 @@
+      <div class="container">
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <button type="button" class="btn btn-custom" routerLink="/">
+              Retour
+            </button>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"></a>
+          </li>
+          <li class="nav-item">
+              <button type="button" class="btn btn-custom" routerLink="/distri/add">
+              Ajouter un compte
+              </button>
+          </li>
+        </ul>
+      </div>  
+      <div class="container">
+        <div class="my-box d-flex justify-content-center" *ngIf="isLoading">
+            <div class="spinner-border" role="status">
+              <span class="sr-only"></span>
+            </div>
+        </div>
+      </div>   
+        
+        <div class="container-fluid" *ngIf="!isLoading">   
+          <form #formFilters="ngForm" (ngSubmit)="applyFilters()">
+            <table class="table">
+              <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Identifiant professionnel</th>
+                <th scope="col">Entreprise</th>
+                <th scope="col">Adresse</th>
+                <th scope="col">Code Postal</th>
+                <th scope="col">Ville</th>
+                <th scope="col">Url Facebook</th>
+                <th scope="col">Url site internet</th>
+                <th scope="col">Téléphone</th>
+                <th scope="col">GPS Lat</th>
+                <th scope="col">GPS Long</th>
+              </tr>
+
+              <tr>
+                <td></td>
+                <td>
+                  <input type="text" class="form-control" [(ngModel)]="filters.idUser" name="filterFirstName">
+                </td> 
+                <td>
+                  <div class="form-group">
+                    <input type="text" class="form-control" [(ngModel)]="filters.company" name="email">
+                  </div>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                  <button type="submit" class="btn btn-custom">
+                    Rechercher
+                  </button>
+                </td>
+              </tr>
+              
+              </thead>
+              <tbody>
+              <tr *ngFor="let distributor of distributors ">
+                
+                  <th scope="row"></th>
+                  <td>{{ distributor.idUser | withNames }} </td>
+
+                  <td>{{ distributor.company }}</td>
+                  <td style="width:100px; max-width:100px; word-wrap:break-word">{{ distributor.adress1 }}</td>
+                  <td>{{ distributor.postal }}</td>
+                  <td style="width:100px; max-width:100px; word-wrap:break-word">{{ distributor.city }}</td>
+                  <td style="width:100px; max-width:100px; word-wrap:break-word">{{ distributor.facebook }}</td>
+                  <td style="width:100px; max-width:100px; word-wrap:break-word">{{ distributor.website }} </td>
+                  <td>{{ distributor.phone }} </td>
+                  <td>{{ distributor.gpsLat }} </td>
+                  <td>{{ distributor.gpsLong }} </td>
+                  <td>
+                    <button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/distri/edit', distributor.idDistributor]">
+                      Modifier
+                    </button>
+                  </td>
+                    <td>  
+                    <button type="button" class="btn btn-sm btn-secondary" (click)="deleteDistributor(distributor.idDistributor)"> 
+                      Supprimer
+                    </button>
+                  </td>
+                
+              </tr>
+              </tbody>
+            </table>
+        </form>        
+        </div>
+      

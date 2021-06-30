@@ -1,0 +1,73 @@
+<div class="container">
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <button type="button" class="btn btn-custom" routerLink="/">
+          Retour
+        </button>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"></a>
+      </li>
+    </ul>
+  </div> 
+  <div class="container">
+    <div class="my-box d-flex justify-content-center" *ngIf="isLoading">
+        <div class="spinner-border" role="status">
+          <span class="sr-only"></span>
+        </div>
+      </div>
+  </div>
+  
+  <div class="container" *ngIf="!isLoading">   
+    <form #formFilters="ngForm" (ngSubmit)="applyFilters()">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Nom</th>
+          <th scope="col">Email</th>
+          <th scope="col">Téléphone</th>
+          <th scope="col">Message</th>
+          <th scope="col">Date d'ajout</th>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+              <input type="text" class="form-control" [(ngModel)]="filters.email" name="filterEmail">
+          </td>
+          <td>
+            <input type="text" class="form-control" [(ngModel)]="filters.phone" name="filterName">
+          </td>                                                                                                              
+          <td>
+            <input type="text" class="form-control" [(ngModel)]="filters.name" name="filterCompany">              
+          </td>  
+          <td>
+              <input type="text" class="form-control" [(ngModel)]="filters.dateAdd" name="filterCompany">
+          </td>  
+          <td></td>
+          <td></td>
+          <td></td>  
+          <td></td>   
+          <td></td>          
+          <td>
+              <button type="submit" class="btn btn-primary">Rechercher</button>
+          </td>
+      </tr>
+  
+        </thead>
+        <tbody>
+        <tr *ngFor="let contact of contacts; let i=index; ">
+      
+            <th scope="row"></th>
+            <td>{{ contact.name }}</td>
+            <td>{{ contact.email }}</td>
+            <td>{{ contact.phone }}</td>
+            <td>{{ contact.message }}</td>
+            <td>{{ contact.dateAdd }}</td>
+            
+        </tr>
+        </tbody>
+      </table>
+  </form>
+  </div>
+

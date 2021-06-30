@@ -1,0 +1,82 @@
+<div class="container">
+    
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <button type="button" class="btn btn-custom" routerLink="/">
+          Retour
+        </button>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"></a>
+      </li>
+      <li class="nav-item">
+          <button type="button" class="btn btn-custom" routerLink="/price/add">
+          Ajouter un compte
+          </button>
+      </li>
+    </ul>
+  </div>  
+     
+  <div class="container-fluid">
+    <div class="my-box d-flex justify-content-center" *ngIf="isLoading">
+        <div class="spinner-border" role="status">
+          <span class="sr-only"></span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container" *ngIf="!isLoading">   
+      <form #formFilters="ngForm">
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Identifiant professionnel</th>
+            <th scope="col">coefBeads</th>
+            <th scope="col">coefBracelet</th>
+            <th scope="col">coefComponents</th>
+            <th scope="col">displayPrice</th>
+            <th scope="col">displayPriceByModel</th>
+            <th scope="col">priceModel1</th>
+            <th scope="col">priceModel2</th>
+            <th scope="col">priceModel3</th>
+            <th scope="col">priceModel4</th>
+            <th scope="col">priceModel5</th>
+            <th scope="col">priceModel6</th>
+            <th scope="col">priceModel10</th>
+          </tr>
+          </thead>
+    
+          <tbody>
+
+          <tr *ngFor="let price of prices ;let i=index">            
+              <th scope="row">{{ price.id }}</th>
+              <td>{{ price.idUser }}</td>
+              <td>{{ price.coefBeads }}</td>
+              <td>{{ price.coefBracelet }}</td>
+              <td>{{ price.coefComponents }}</td>
+              <td>{{ price.displayPrice }}</td>
+              <td>{{ price.displayPriceByModel }}</td>
+              <td>{{ price.priceModel1 }}</td>
+              <td>{{ price.priceModel2 }}</td>
+              <td>{{ price.priceModel3 }}</td>
+              <td>{{ price.priceModel4 }}</td>
+              <td>{{ price.priceModel5 }}</td>
+              <td>{{ price.priceModel6 }}</td>
+              <td>{{ price.priceModel10 }}</td>
+              <td>
+                <button type="button" class="btn btn-sm btn-secondary" [routerLink]="['/price/edit', price.id]">
+                  Modifier
+                </button>
+              </td>
+                <td>  
+                <button type="button" class="btn btn-sm btn-secondary" (click)="deletePrice(price.id)"> 
+                  Supprimer
+                </button>
+              </td>
+            
+          </tr>
+          </tbody>
+        </table>
+    </form>    
+    </div>
